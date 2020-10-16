@@ -1,0 +1,17 @@
+server:
+  port: 8900
+  tomcat:
+    threads:
+      max: 1000
+  servlet:
+    session:
+      timeout: 60
+
+spring:
+  application:
+    name: hadoop
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
