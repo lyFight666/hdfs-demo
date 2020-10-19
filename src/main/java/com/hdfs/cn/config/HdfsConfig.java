@@ -32,8 +32,9 @@ public class HdfsConfig {
     public org.apache.hadoop.conf.Configuration  getConfiguration(){
         org.apache.hadoop.conf.Configuration configuration = new org.apache.hadoop.conf.Configuration();
         configuration.set("fs.defaultFS", hdfsPath);
+//        configuration.set("dfs.heartbeat.interval", "5");
         // 缓存Filesystem实例，否则会导致某个datanode关闭连接后抛出异常"java.io.IOException: Filesystem closed"
-//        configuration.setBoolean("fs.hdfs.impl.disable.cache",true);
+        configuration.setBoolean("fs.hdfs.impl.disable.cache",true);
         return configuration;
     }
     /**

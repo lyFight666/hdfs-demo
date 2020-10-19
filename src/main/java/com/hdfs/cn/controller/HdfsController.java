@@ -31,7 +31,7 @@ public class HdfsController {
     @Resource
     HdfsService hdfsService;
     /**
-     * 创建文件夹
+     * 创建文件夹（测试完成）
      * @param path
      * @return
      * @throws Exception
@@ -54,8 +54,8 @@ public class HdfsController {
     }
 
     /**
-     * 读取HDFS目录信息
-     * @param path
+     * 读取HDFS目录信息（测试完成）
+     * @param path 目录路径
      * @return
      * @throws Exception
      */
@@ -67,7 +67,7 @@ public class HdfsController {
 
     /**
      * 获取HDFS文件在集群中的位置
-     * @param path
+     * @param path 包含文件的路径
      * @return
      * @throws Exception
      */
@@ -78,8 +78,8 @@ public class HdfsController {
     }
 
     /**
-     * 创建文件
-     * @param path
+     * 创建文件（测试完成）
+     * @param path 存放文件的目录
      * @return
      * @throws Exception
      */
@@ -130,8 +130,8 @@ public class HdfsController {
     }
 
     /**
-     * 读取文件列表
-     * @param path
+     * 读取文件列表（测试完成）
+     * @param path 目录所在的路径
      * @return
      * @throws Exception
      */
@@ -145,8 +145,8 @@ public class HdfsController {
     }
 
     /**
-     * 重命名文件
-     * @param oldName
+     * 重命名文件（测试完成）
+     * @param oldName 包含文件路径
      * @param newName
      * @return
      * @throws Exception
@@ -166,7 +166,7 @@ public class HdfsController {
     }
 
     /**
-     * 删除文件
+     * 删除文件（测试完成）
      * @param path
      * @return
      * @throws Exception
@@ -182,9 +182,9 @@ public class HdfsController {
     }
 
     /**
-     * 上传文件
-     * @param path
-     * @param uploadPath
+     * 上传文件（完成测试，超时）
+     * @param path 客户端路径
+     * @param uploadPath 服务器路径
      * @return
      * @throws Exception
      */
@@ -196,7 +196,7 @@ public class HdfsController {
     }
 
     /**
-     * 下载文件
+     * 下载文件（测试完成）
      * @param path
      * @param downloadPath
      * @return
@@ -210,7 +210,7 @@ public class HdfsController {
     }
 
     /**
-     * HDFS文件复制
+     * HDFS文件复制（测试完成）
      * @param sourcePath
      * @param targetPath
      * @return
@@ -224,7 +224,7 @@ public class HdfsController {
     }
 
     /**
-     * 查看文件是否已存在
+     * 查看文件是否已存在（测试完成）
      * @param path
      * @return
      * @throws Exception

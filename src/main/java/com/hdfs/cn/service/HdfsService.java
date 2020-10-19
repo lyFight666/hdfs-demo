@@ -85,7 +85,7 @@ public class HdfsService {
         // 目标路径
         Path srcPath = new Path(path);
         boolean isOk = fs.mkdirs(srcPath);
-        fs.close();
+//        fs.close();
         return isOk;
     }
 
@@ -157,7 +157,7 @@ public class HdfsService {
         FSDataOutputStream outputStream = fs.create(newPath);
         outputStream.write(file.getBytes());
         outputStream.close();
-        fs.close();
+//        fs.close();
     }
 
     /**
@@ -190,7 +190,7 @@ public class HdfsService {
             return sb.toString();
         } finally {
             inputStream.close();
-            fs.close();
+//            fs.close();
         }
     }
 
@@ -224,7 +224,7 @@ public class HdfsService {
             map.put("filePath", filePath.toString());
             returnList.add(map);
         }
-        fs.close();
+//        fs.close();
         return returnList;
     }
 
@@ -246,7 +246,7 @@ public class HdfsService {
         // 重命名目标路径
         Path newPath = new Path(newName);
         boolean isOk = fs.rename(oldPath, newPath);
-        fs.close();
+//        fs.close();
         return isOk;
     }
 
@@ -266,8 +266,9 @@ public class HdfsService {
         }
         FileSystem fs = getFileSystem();
         Path srcPath = new Path(path);
-        boolean isOk = fs.deleteOnExit(srcPath);
-        fs.close();
+//        boolean isOk = fs.deleteOnExit(srcPath);// 这个方法是在JVM退出的时候才执行，即程序结束或重启
+        boolean isOk = fs.delete(srcPath,true);// 这个方法是一执行就会删除
+//        fs.close();
         return isOk;
     }
 
@@ -290,7 +291,7 @@ public class HdfsService {
 
         // 调用文件系统的文件复制方法，第一个参数是否删除原文件true为删除，默认为false
         fs.copyFromLocalFile(false, clientPath, serverPath);
-        fs.close();
+//        fs.close();
     }
 
     /**
@@ -305,14 +306,14 @@ public class HdfsService {
             return;
         }
         FileSystem fs = getFileSystem();
-        // 上传路径
+        // 目标文件所在路径（服务器路径）
         Path clientPath = new Path(path);
-        // 目标路径
+        // 下载到的位置路径（客户端路径）
         Path serverPath = new Path(downloadPath);
 
         // 调用文件系统的文件复制方法，第一个参数是否删除原文件true为删除，默认为false
         fs.copyToLocalFile(false, clientPath, serverPath);
-        fs.close();
+//        fs.close();
     }
 
     /**
@@ -342,7 +343,7 @@ public class HdfsService {
         } finally {
             inputStream.close();
             outputStream.close();
-            fs.close();
+//            fs.close();
         }
     }
 
@@ -367,7 +368,7 @@ public class HdfsService {
             FSDataInputStream inputStream = fs.open(srcPath);
             return IOUtils.readFullyToByteArray(inputStream);
         } finally {
-            fs.close();
+//            fs.close();
         }
     }
 
